@@ -1,0 +1,246 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[spanish]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{PRIMER PARCIAL - Programaci\'on y Manipulaci\'on de Vectores}
+\author{[Pérez Barahona Pedro Luis y Rivero Chavez Paola Esperanza}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Introducci\'on}
+La programación orientada a objetos (POO) es una forma de organizar y estructurar el código que facilita su reutilización y mantenimiento. En este parcial, hemos trabajado con varios conceptos clave de POO que nos permiten escribir programas más eficientes y organizados.
+
+Uno de los pilares fundamentales es el uso de clases y objetos , que nos ayudan a representar elementos del mundo real dentro del código. Imagina que una clase es como un molde para hacer galletas, y cada galleta es un objeto que sigue el mismo diseño pero con sus propias características.
+
+El encapsulamiento es otro concepto importante, ya que nos permite proteger los datos de un objeto y evitar que sean modificados directamente. Solo se pueden cambiar a través de métodos específicos, lo que asegura que el programa funcione correctamente.
+
+La herencia nos permite crear nuevas clases basadas en otras ya existentes. Es como cuando un hijo hereda características de sus padres, pero también puede tener sus propias cualidades únicas. Gracias a esto, podemos reutilizar el código sin necesidad de escribirlo desde cero.
+
+El polimorfismo es la capacidad de un objeto de comportarse de diferentes maneras dependiendo del contexto. Esto nos da flexibilidad en el código, permitiendo que una misma función pueda funcionar de distintas formas según el tipo de objeto con el que se utiliza.
+
+La abstracción nos ayuda a enfocarnos en lo esencial de un objeto sin preocuparnos por los detalles de su funcionamiento interno. Es como conducir un coche: solo necesitamos saber cómo usar el volante y los pedales, sin entender cada detalle del motor.
+
+Las interfaces establecieron reglas que las clases deben seguir, asegurando que diferentes partes del programa puedan comunicarse sin problemas. Son como contratos que indican qué funciones deben implementarse en una clase.
+
+También hemos trabajado con propiedades y métodos , que son las formas en las que podemos interactuar con los objetos, accediendo y modificando su información de manera controlada.
+
+Los constructores y destructores son métodos especiales que nos permiten inicializar objetos correctamente cuando se crean y liberar memoria cuando ya no se necesitan.
+
+El uso de colecciones y genéricos nos permite manejar grandes volúmenes de datos de manera eficiente, almacenando múltiples valores sin necesidad de definirlos uno por uno.
+
+Por último, el manejo de excepciones nos ayuda a prevenir errores inesperados en el programa, permitiéndonos capturar y manejar estos problemas sin que el programa deje de funcionar.
+
+
+
+\section{Conceptos Clave}
+En este proyecto trabajamos con los siguientes conceptos:
+\begin{itemize}
+    \item \textbf{Vectores}: Estructura de datos utilizada para almacenar elementos de tipo caracter.
+    \item \textbf{Ordenamiento}: Implementación de orden ascendente y descendente.
+    \item \textbf{Manipulación de Elementos}: Reemplazo y modificación de elementos en un vector.
+    \item \textbf{Expansión del Vector}: Aumento del tamaño del vector sin perder los datos originales.
+    \item \textbf{Representación en ASCII}: Uso de tablas ASCII para la visualización de los datos.
+\end{itemize}
+
+\section{Descripci\'on del C\'odigo}
+A continuación, se explica cada función del código implementado en detalle:
+
+\subsection{Inicialización del Vector}
+En esta sección, el programa solicita al usuario que ingrese un tamaño para el vector, con un límite máximo de 99 elementos. Este límite se establece para evitar el uso excesivo de memoria y asegurar un manejo eficiente de los datos.
+
+Una vez que el usuario ingresa el tamaño, el vector se llena automáticamente con letras aleatorias en minúsculas. Estas letras se generan utilizando la función de números aleatorios, asegurando que el conjunto de caracteres sea variado en cada ejecución del programa. Esta inicialización es fundamental para trabajar con datos dinámicos y poder aplicar las operaciones siguientes.
+
+\subsection{Reemplazo de Elementos}
+El usuario tiene la opción de modificar el contenido de un elemento en el vector. Para hacerlo, debe seleccionar un índice específico y luego ingresar una nueva letra en minúscula para reemplazar la existente. Este proceso se asegura a través de validaciones que verifican que:
+\begin{itemize}
+    \item El índice ingresado esté dentro del rango del vector.
+    \item El nuevo valor sea una letra en minúscula.
+\end{itemize}
+Estas validaciones previenen errores y aseguran que el programa funcione correctamente sin interrupciones inesperadas.
+
+\subsection{Ordenamiento del Vector}
+El programa permite ordenar el vector en dos modalidades:
+\begin{itemize}
+    \item \textbf{Orden Ascendente (A → Z)}: Los elementos se organizan en orden alfabético.
+    \item \textbf{Orden Descendente (Z → A)}: Se invierte el orden para que las letras más altas en el alfabeto aparezcan primero.
+\end{itemize}
+Para facilitar la comprensión del usuario, el resultado del ordenamiento se muestra en pantalla utilizando un formato estructurado. Esto es útil para visualizar claramente la organización de los datos antes y después de la operación.
+
+\subsection{Expansión del Vector}
+Una característica importante del programa es la capacidad de aumentar el tamaño del vector sin afectar los valores existentes. Cuando el usuario decide expandir el vector, debe ingresar un nuevo tamaño mayor al actual, pero sin exceder el límite de 99 elementos.
+
+Los nuevos espacios añadidos se llenan automáticamente con caracteres aleatorios, asegurando que el vector siga teniendo datos útiles sin necesidad de una inicialización manual. Esta funcionalidad simula un caso real donde un sistema debe manejar datos crecientes sin perder la información previa.
+
+\subsection{Visualización en Formato ASCII}
+Para facilitar la lectura y comprensión de los datos dentro del vector, se implementa un sistema de representación basado en tablas ASCII. Este formato permite mostrar los elementos de manera ordenada, facilitando la interpretación de los valores almacenados.
+
+Cada celda de la tabla contiene un valor del vector, junto con su índice correspondiente, lo que ayuda a identificar rápidamente la posición de cada elemento. Esta forma de visualización es común en la presentación de datos tabulares y resulta especialmente útil en entornos educativos y de análisis de información.
+
+
+
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage{listings}
+
+% Definir los colores para la sintaxis de C#
+\lstdefinestyle{CSharpStyle}{
+    language=C++,
+    basicstyle=\ttfamily\footnotesize\color{black},
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    numberstyle=\tiny\color{gray},
+    identifierstyle=\color{cyan}, % Variables y nombres de funciones en cian
+    morekeywords={namespace, class, using, public, static, void, Console, WriteLine, int, char, new, if, else, while, for, return, Array, Sort, Reverse, ReadKey, ReadLine, out, ref, string, Clone, Resize},
+    numbers=left,
+    stepnumber=1,
+    frame=single,
+    breaklines=true,
+    captionpos=b
+}
+
+\begin{document}
+
+\section{Implementación del Código}
+A continuación, se presenta la implementación del código en C\# siguiendo una estructura bien definida para facilitar su comprensión.
+
+\subsection{Inicialización del Vector}
+El siguiente fragmento de código permite al usuario ingresar el tamaño del vector, asegurando que este no supere el límite de 99 elementos y contenga solo caracteres generados aleatoriamente:
+
+\begin{lstlisting}[style=CSharpStyle, caption=Inicialización del vector]
+Console.Write("Ingrese el tamaño del vector (máximo 99): ");
+int tamañoVector;
+while (!int.TryParse(Console.ReadLine(), out tamañoVector) || tamañoVector < 1 || tamañoVector > 99)
+{
+    Console.Write("Error. Ingrese un número válido entre 1 y 99: ");
+}
+
+char[] vector = new char[tamañoVector];
+Random random = new Random();
+
+for (int i = 0; i < tamañoVector; i++)
+{
+    vector[i] = (char)random.Next('a', 'z' + 1); // Letras en minúscula
+}
+Console.WriteLine("\nVector original:");
+ImprimirVectorTabla(vector);
+\end{lstlisting}
+
+\subsection{Reemplazo de Elementos}
+Esta sección permite al usuario modificar un elemento del vector indicando su índice. Se aplican validaciones para asegurar que el índice sea válido y que el nuevo valor sea una letra en minúscula.
+
+\begin{lstlisting}[style=CSharpStyle, caption=Reemplazo de elementos en el vector]
+Console.Write("Ingrese el número del índice a reemplazar: ");
+int indice;
+while (!int.TryParse(Console.ReadLine(), out indice) || indice < 1 || indice > tamañoVector)
+{
+    Console.Write("Error. Ingrese un número válido dentro del rango: ");
+}
+Console.Write($"Ingrese la nueva letra para el índice {indice} ({vector[indice - 1]}): ");
+char nuevaLetra;
+while (!char.TryParse(Console.ReadLine().ToLower(), out nuevaLetra) || !char.IsLower(nuevaLetra))
+{
+    Console.Write("Error. Ingrese una letra minúscula válida: ");
+}
+vector[indice - 1] = nuevaLetra;
+Console.WriteLine("Elemento reemplazado correctamente.");
+Console.WriteLine("\nVector actualizado:");
+ImprimirVectorTabla(vector);
+\end{lstlisting}
+\vspace{1cm} % Agrega 1 cm de espacio
+\vspace{1cm} % Agrega 1 cm de espacio
+\vspace{1cm} % Agrega 1 cm de espacio
+
+\subsection{Ordenamiento del Vector}
+El usuario puede visualizar el vector en orden ascendente y descendente.
+
+\begin{lstlisting}[style=CSharpStyle, caption=Ordenamiento del vector]
+Console.Write("Presione cualquier tecla para mostrar los vectores en orden...");
+Console.ReadKey();
+
+Console.WriteLine("\nVector original:");
+ImprimirVectorTabla(vector);
+
+char[] vectorOrdenado = (char[])vector.Clone();
+Array.Sort(vectorOrdenado);
+Console.WriteLine("\nOrden Ascendente (a → z):");
+ImprimirVectorTabla(vectorOrdenado);
+
+Array.Reverse(vectorOrdenado);
+Console.WriteLine("\nOrden Descendente (z → a):");
+ImprimirVectorTabla(vectorOrdenado);
+\end{lstlisting}
+
+\subsection{Expansión del Vector}
+El usuario tiene la posibilidad de aumentar el tamaño del vector sin perder los valores existentes. Se verifica que el nuevo tamaño sea mayor al actual y no exceda el límite permitido.
+
+\begin{lstlisting}[style=CSharpStyle, caption=Expansión del vector]
+Console.Write("Ingrese el nuevo tamaño del vector (debe ser mayor al actual y máximo 99): ");
+int nuevoTamaño;
+while (!int.TryParse(Console.ReadLine(), out nuevoTamaño) || nuevoTamaño <= tamañoVector || nuevoTamaño > 99)
+{
+    Console.Write("Error. Ingrese un número mayor al actual y menor o igual a 99: ");
+}
+char[] vectorAnterior = (char[])vector.Clone();
+Array.Resize(ref vector, nuevoTamaño);
+for (int i = tamañoVector; i < nuevoTamaño; i++)
+{
+    vector[i] = (char)random.Next('a', 'z' + 1);
+}
+Console.WriteLine("\nVector ampliado correctamente.");
+\end{lstlisting}
+
+\subsection{Función para Imprimir el Vector en Formato Tabla ASCII}
+Para facilitar la visualización de los datos, se implementa una función que muestra el vector en un formato tabular.
+
+\begin{lstlisting}[style=CSharpStyle, caption=Función para imprimir el vector en tabla ASCII]
+static void ImprimirVectorTabla(char[] vector)
+{
+    if (vector.Length == 0) {
+        Console.WriteLine("(Sin elementos)");
+        return;
+    }
+    Console.WriteLine("+----" + string.Concat(Enumerable.Repeat("+----", vector.Length)) + "+");
+    Console.WriteLine("| " + string.Join(" | ", vector) + " |");
+    Console.WriteLine("+----" + string.Concat(Enumerable.Repeat("+----", vector.Length)) + "+");
+    Console.WriteLine("| " + string.Join(" | ", Enumerable.Range(1, vector.Length)) + " |");
+    Console.WriteLine("+----" + string.Concat(Enumerable.Repeat("+----", vector.Length)) + "+");
+}
+\end{lstlisting}
+
+
+
+\section{Aplicaciones del Proyecto}
+Los conocimientos adquiridos en este proyecto pueden aplicarse en:
+\begin{itemize}
+    \item \textbf{Manejo de bases de datos}: Optimización de almacenamiento y búsqueda de datos.
+    \item \textbf{Ciencias de la computación}: Implementación de estructuras de datos eficientes.
+    \item \textbf{Desarrollo de videojuegos}: Uso de vectores para gestionar objetos y posiciones en el espacio.
+\end{itemize}
+
+\section{Conclusi\'on}
+Este proyecto ha permitido explorar de manera profunda la manipulación de vectores en C# , a abarcar desde su inicialización hasta su expansión y ordenamiento. A lo largo del desarrollo, se han implementado conceptos clave de la Programación Orientada a Objetos (POO) , así como prácticas esenciales en la gestión de estructuras de datos.
+
+Uno de los puntos más relevantes ha sido la capacidad de modificar y expandir el vector sin perder la información ya almacenada, lo que demuestra la importancia de trabajar con estructuras dinámicas en la programación. A través de la validación de datos, se garantiza que el usuario ingrese información correcta, evitando errores en la ejecución y mejorando la robustez del programa.
+
+Además, el uso de tablas ASCII para la representación de los vectores ha facilitado la interpretación visual de los datos, permitiendo que la información sea más clara y comprensible. Esta metodología es una herramienta valiosa en entornos donde la estructurada de datos es clave, como en análisis estadístico, visualización de información en bases de datos o interfaces de usuario en entornos de consola .
+
+Desde una perspectiva educativa, este proyecto ha servido para reforzar la importancia de los ciclos, condicionales, funciones y estructuras de datos en la programación. También se ha abordado la optimización de código mediante el uso de métodos y funciones reutilizables , promoviendo así un desarrollo eficiente y escalable.
+
+En términos prácticos, el aprendizaje obtenido a partir de esta implementación puede aplicarse a diversos campos, tales como el desarrollo de software empresarial, administración de bases de datos, inteligencia artificial y desarrollo de videojuegos , donde el manejo de listas y estructuras de datos dinámicas es fundamental.
+
+En conclusión, este proyecto ha brindado una experiencia integral en la manipulación de vectores en C# , combinando teoría y práctica en un ejercicio completo de programación. Ha demostrado cómo la correcta gestión de datos y la implementación de estructuras organizadas pueden mejorar la eficiencia, claridad y funcionalidad de un programa, sentando así bases sólidas para desarrollos más complejos en el futuro.
+
+
+
+
+
+\end{document}

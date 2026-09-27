@@ -1,0 +1,111 @@
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        while (true)
+        {
+            // Paso 1: Indicar tamaño del vector
+            Console.Write("Ingrese el tamaño del vector (máximo 99): ");
+            int tamañoVector;
+            while (!int.TryParse(Console.ReadLine(), out tamañoVector) || tamañoVector < 1 || tamañoVector > 99)
+            {
+                Console.Write("Error. Ingrese un número válido entre 1 y 99: ");
+            }
+            
+            char[] vector = new char[tamañoVector];
+            Random random = new Random();
+            
+            for (int i = 0; i < tamañoVector; i++)
+            {
+                vector[i] = (char)random.Next('a', 'z' + 1); // Letras en minúscula
+            }
+            
+            Console.WriteLine("\nVector original:");
+            ImprimirVectorTabla(vector);
+
+            // Paso 2: Reemplazar un elemento por índice
+            Console.Write("Ingrese el número del índice a reemplazar: ");
+            int indice;
+            while (!int.TryParse(Console.ReadLine(), out indice) || indice < 1 || indice > tamañoVector)
+            {
+                Console.Write("Error. Ingrese un número válido dentro del rango: ");
+            }
+            Console.Write($"Ingrese la nueva letra para el índice {indice} ({vector[indice - 1]}): ");
+            char nuevaLetra;
+            while (!char.TryParse(Console.ReadLine().ToLower(), out nuevaLetra) || !char.IsLower(nuevaLetra))
+            {
+                Console.Write("Error. Ingrese una letra minúscula válida: ");
+            }
+            vector[indice - 1] = nuevaLetra;
+            Console.WriteLine("Elemento reemplazado correctamente.");
+            
+            Console.WriteLine("\nVector actualizado:");
+            ImprimirVectorTabla(vector);
+            
+            // Paso 3: Ordenar vector
+            Console.Write("Presione cualquier tecla para mostrar los vectores en orden...");
+            Console.ReadKey();
+            
+            Console.WriteLine("\nVector original:");
+            ImprimirVectorTabla(vector);
+            
+            char[] vectorOrdenado = (char[])vector.Clone();
+            Array.Sort(vectorOrdenado);
+            Console.WriteLine("\nOrden Ascendente (a → z):");
+            ImprimirVectorTabla(vectorOrdenado);
+            
+            Array.Reverse(vectorOrdenado);
+            Console.WriteLine("\nOrden Descendente (z → a):");
+            ImprimirVectorTabla(vectorOrdenado);
+            
+            // Nueva opción: Aumentar el tamaño del vector
+            Console.Write("Ingrese el nuevo tamaño del vector (debe ser mayor al actual y máximo 99): ");
+            int nuevoTamaño;
+            while (!int.TryParse(Console.ReadLine(), out nuevoTamaño) || nuevoTamaño <= tamañoVector || nuevoTamaño > 99)
+            {
+                Console.Write("Error. Ingrese un número mayor al actual y menor o igual a 99: ");
+            }
+            char[] vectorAnterior = (char[])vector.Clone();
+            Array.Resize(ref vector, nuevoTamaño);
+            for (int i = tamañoVector; i < nuevoTamaño; i++)
+            {
+                vector[i] = (char)random.Next('a', 'z' + 1);
+            }
+            Console.WriteLine("\nVector ampliado correctamente.");
+            
+            Console.WriteLine("\nVector original antes de la ampliación:");
+            ImprimirVectorTabla(vectorAnterior);
+            
+            Console.WriteLine("\nNuevos elementos añadidos:");
+            ImprimirVectorTabla(vector.Skip(tamañoVector).ToArray());
+            
+            Console.WriteLine("\nVector final:");
+            ImprimirVectorTabla(vector);
+            
+            // Opción 6: Salir del programa
+            Console.Write("¿Desea salir del programa? (S/N): ");
+            char salir;
+            while (!char.TryParse(Console.ReadLine().ToLower(), out salir) || (salir != 's' && salir != 'n'))
+            {
+                Console.Write("Error. Ingrese 'S' para salir o 'N' para continuar: ");
+            }
+            if (salir == 's') break;
+        }
+    }
+    
+    static void ImprimirVectorTabla(char[] vector)
+    {
+        if (vector.Length == 0) {
+            Console.WriteLine("(Sin elementos)");
+            return;
+        }
+        Console.WriteLine("+----" + string.Concat(Enumerable.Repeat("+----", vector.Length)) + "+");
+        Console.WriteLine("| " + string.Join(" | ", vector) + " |");
+        Console.WriteLine("+----" + string.Concat(Enumerable.Repeat("+----", vector.Length)) + "+");
+        Console.WriteLine("| " + string.Join(" | ", Enumerable.Range(1, vector.Length)) + " |");
+        Console.WriteLine("+----" + string.Concat(Enumerable.Repeat("+----", vector.Length)) + "+");
+    }
+}
